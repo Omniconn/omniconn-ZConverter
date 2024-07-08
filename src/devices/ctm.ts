@@ -1,4 +1,4 @@
-import {Zcl} from 'zigbee-herdsman';
+import {Zcl} from 'omniconn-zprotocol';
 import fz from '../converters/fromZigbee';
 import tz from '../converters/toZigbee';
 import * as exposes from '../lib/exposes';

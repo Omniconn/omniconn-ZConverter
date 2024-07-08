@@ -49,7 +49,7 @@ function electricityMeterPoll(): ModernExtend {
 
     const onEvent: OnEvent = async (type, data, device) => {
         // This device doesn't support reporting correctly.
-        // https://github.com/Koenkk/zigbee-herdsman-converters/pull/1270
+        // https://github.com/Koenkk/omniconn-zprotocol-converters/pull/1270
         const endpoint = device.getEndpoint(1);
         if (type === 'stop') {
             clearInterval(globalStore.getValue(device, 'interval'));

@@ -205,7 +205,7 @@ export const numericAttributes2Payload = async (msg: Fz.Message, meta: Fz.Meta, 
             if (['WXCJKG11LM', 'WXCJKG12LM', 'WXCJKG13LM', 'MCCGQ14LM', 'GZCGQ01LM', 'JY-GZ-01AQ', 'CTP-R01'].includes(model.model)) {
                 // The temperature value is constant 25 °C and does not change, so we ignore it
                 // https://github.com/Koenkk/zigbee2mqtt/issues/11126
-                // https://github.com/Koenkk/zigbee-herdsman-converters/pull/3585
+                // https://github.com/Koenkk/omniconn-zprotocol-converters/pull/3585
                 // https://github.com/Koenkk/zigbee2mqtt/issues/13253
             } else {
                 assertNumber(value);
@@ -741,7 +741,7 @@ export const numericAttributes2Payload = async (msg: Fz.Message, meta: Fz.Meta, 
             if (['ZNCLBL01LM'].includes(model.model)) {
                 // This is the "target_state" attribute, which takes the following values: 0: 'OPEN', 1: 'CLOSE', 2: 'STOP'.
                 // It is not used because the values 0 and 1 are not always reported.
-                // https://github.com/Koenkk/zigbee-herdsman-converters/pull/4307
+                // https://github.com/Koenkk/omniconn-zprotocol-converters/pull/4307
             }
             break;
         case '1057':
@@ -2370,7 +2370,7 @@ export const fromZigbee = {
                         // with the correct version from the heartbeat.
                         // This is not reflected in the frontend unless the device is reconfigured
                         // or the whole service restarted.
-                        // See https://github.com/Koenkk/zigbee-herdsman-converters/pull/5363#discussion_r1081477047
+                        // See https://github.com/Koenkk/omniconn-zprotocol-converters/pull/5363#discussion_r1081477047
                         // @ts-expect-error
                         meta.device.softwareBuildID = heartbeat.firmware_version;
                         delete heartbeat.firmware_version;
@@ -2385,7 +2385,7 @@ export const fromZigbee = {
                 case 0x0276: {
                     const buffer = value as Buffer;
                     // Buffer is empty first message after pairing
-                    // https://github.com/Koenkk/zigbee-herdsman-converters/issues/7128
+                    // https://github.com/Koenkk/omniconn-zprotocol-converters/issues/7128
                     if (buffer.length) {
                         const schedule = trv.decodeSchedule(buffer);
                         result['schedule_settings'] = trv.stringifySchedule(schedule);
@@ -2535,7 +2535,7 @@ export const fromZigbee = {
             if ((model.model === 'ZNCLDJ12LM') &&
               msg.type === 'attributeReport' && [0, 2].includes(msg.data['presentValue'])) {
                 // Incorrect reports from the device, ignore (re-read by onEvent of ZNCLDJ12LM)
-                // https://github.com/Koenkk/zigbee-herdsman-converters/pull/1427#issuecomment-663862724
+                // https://github.com/Koenkk/omniconn-zprotocol-converters/pull/1427#issuecomment-663862724
                 return;
             }
 
@@ -2746,7 +2746,7 @@ export const fromZigbee = {
         type: ['attributeReport', 'readResponse'],
         convert: (model, msg, publish, options, meta) => {
             // also trigger movement, because there is no illuminance without movement
-            // https://github.com/Koenkk/zigbee-herdsman-converters/issues/1925
+            // https://github.com/Koenkk/omniconn-zprotocol-converters/issues/1925
             msg.data.occupancy = 1;
             const payload = fz.occupancy_with_timeout.convert(model, msg, publish, options, meta) as KeyValueAny;
             if (payload) {
@@ -4103,9 +4103,9 @@ export const toZigbee = {
 
                 if (!['ZNCLDJ11LM', 'ZNJLBL01LM', 'ZNCLBL01LM'].includes(meta.mapped.model)) {
                     // The code below is originally added for ZNCLDJ11LM (Koenkk/zigbee2mqtt#4585).
-                    // However, in Koenkk/zigbee-herdsman-converters#4039 it was replaced by reading
+                    // However, in Koenkk/omniconn-zprotocol-converters#4039 it was replaced by reading
                     // directly from currentPositionLiftPercentage, so that device is excluded.
-                    // For ZNJLBL01LM, in Koenkk/zigbee-herdsman-converters#4163 the position is read
+                    // For ZNJLBL01LM, in Koenkk/omniconn-zprotocol-converters#4163 the position is read
                     // through onEvent each time the motor stops, so it becomes redundant, and the
                     // device is excluded.
                     // The code is left here to avoid breaking compatibility, ideally all devices using

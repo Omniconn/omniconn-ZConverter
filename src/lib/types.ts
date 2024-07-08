@@ -4,9 +4,9 @@ import type {
     Device as ZHDevice,
     Endpoint as ZHEndpoint,
     Group as ZHGroup,
-} from 'zigbee-herdsman/dist/controller/model';
-import type {FrameControl} from 'zigbee-herdsman/dist/zspec/zcl/definition/tstype';
-import type {Header as ZHZclHeader} from 'zigbee-herdsman/dist/zspec/zcl';
+} from 'omniconn-zprotocol/dist/controller/model';
+import type {FrameControl} from 'omniconn-zprotocol/dist/zspec/zcl/definition/tstype';
+import type {Header as ZHZclHeader} from 'omniconn-zprotocol/dist/zspec/zcl';
 
 import * as exposes from './exposes';
 

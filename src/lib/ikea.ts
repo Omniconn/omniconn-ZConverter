@@ -16,7 +16,7 @@ import tz from '../converters/toZigbee';
 import * as constants from '../lib/constants';
 import * as reporting from '../lib/reporting';
 import * as globalStore from '../lib/store';
-import {Zcl} from 'zigbee-herdsman';
+import {Zcl} from 'omniconn-zprotocol';
 import * as semver from 'semver';
 
 export const manufacturerOptions = {manufacturerCode: Zcl.ManufacturerCode.IKEA_OF_SWEDEN};

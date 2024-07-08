@@ -1,6 +1,6 @@
 import * as index from "../src/index";
 import {Definition, Fz, KeyValueAny, Tz, Zh} from "../src/lib/types";
-import {Endpoint, Entity} from "zigbee-herdsman/dist/controller/model";
+import {Endpoint, Entity} from "omniconn-zprotocol/dist/controller/model";
 
 interface State {
     readonly weekly_schedule: {

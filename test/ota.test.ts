@@ -3,9 +3,9 @@ import {readFileSync} from 'fs';
 import {EventEmitter} from 'stream';
 import {updateToLatest, parseImage, UPGRADE_FILE_IDENTIFIER, getNewImage} from '../src/lib/ota/common';
 import {KeyValueAny, Ota} from '../src/lib/types';
-import {Zcl} from 'zigbee-herdsman';
-import Waitress from 'zigbee-herdsman/dist/utils/waitress';
-import ZclTransactionSequenceNumber from 'zigbee-herdsman/dist/controller/helpers/zclTransactionSequenceNumber';
+import {Zcl} from 'omniconn-zprotocol';
+import Waitress from 'omniconn-zprotocol/dist/utils/waitress';
+import ZclTransactionSequenceNumber from 'omniconn-zprotocol/dist/controller/helpers/zclTransactionSequenceNumber';
 
 interface WaitressMatcher {
     clusterID: number;

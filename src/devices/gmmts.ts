@@ -9,9 +9,9 @@ import {repInterval} from '../lib/constants';
 
 import * as ota from '../lib/ota';
 import {Buffer} from 'buffer';
-import {Device} from 'zigbee-herdsman/dist/controller/model';
+import {Device} from 'omniconn-zprotocol/dist/controller/model';
 import {logger} from '../lib/logger';
-import {Zcl} from 'zigbee-herdsman';
+import {Zcl} from 'omniconn-zprotocol';
 
 const ea = exposes.access;
 const e = exposes.presets;

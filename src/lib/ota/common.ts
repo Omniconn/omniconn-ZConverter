@@ -7,7 +7,7 @@ import axios from 'axios';
 import * as URI from 'uri-js';
 import {readFileSync} from 'fs';
 import path from 'path';
-import {Zcl} from 'zigbee-herdsman';
+import {Zcl} from 'omniconn-zprotocol';
 import {logger} from '../logger';
 import https from 'https';
 import tls from 'tls';
@@ -578,7 +578,7 @@ export async function updateToLatest(device: Zh.Device, onProgress: Ota.OnProgre
     const sendImage = async () => {
         let imageBlockOrPageRequestTimeoutMs: number = 150000;
         // increase the upgradeEndReq wait time to solve the problem of OTA timeout failure of Sonoff Devices
-        // (https://github.com/Koenkk/zigbee-herdsman-converters/issues/6657)
+        // (https://github.com/Koenkk/omniconn-zprotocol-converters/issues/6657)
         if (requestPayload.manufacturerCode === Zcl.ManufacturerCode.SHENZHEN_COOLKIT_TECHNOLOGY_CO_LTD && requestPayload.imageType == 8199) {
             imageBlockOrPageRequestTimeoutMs = 3600000;
         }

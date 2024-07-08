@@ -1,4 +1,4 @@
-import {Zcl} from 'zigbee-herdsman';
+import {Zcl} from 'omniconn-zprotocol';
 import * as exposes from '../lib/exposes';
 import fz from '../converters/fromZigbee';
 import tz from '../converters/toZigbee';
@@ -495,7 +495,7 @@ const definitions: Definition[] = [
         ],
         configure: async (device, coordinatorEndpoint) => {
             // Unbind genPollCtrl to prevent device from sending checkin message.
-            // Zigbee-herdsmans responds to the checkin message which causes the device
+            // omniconn-zprotocols responds to the checkin message which causes the device
             // to poll slower.
             // https://github.com/Koenkk/zigbee2mqtt/issues/11676
             await device.getEndpoint(1).unbind('genPollCtrl', coordinatorEndpoint);
@@ -514,7 +514,7 @@ const definitions: Definition[] = [
         ],
         configure: async (device, coordinatorEndpoint) => {
             // Unbind genPollCtrl to prevent device from sending checkin message.
-            // Zigbee-herdsmans responds to the checkin message which causes the device
+            // omniconn-zprotocols responds to the checkin message which causes the device
             // to poll slower.
             // https://github.com/Koenkk/zigbee2mqtt/issues/11676
             await device.getEndpoint(1).unbind('genPollCtrl', coordinatorEndpoint);
@@ -545,7 +545,7 @@ const definitions: Definition[] = [
     {
         fingerprint: [
             // ModelID is from the temperature/humidity sensor (SNZB-02) but this is SNZB-04, wrong modelID in firmware?
-            // https://github.com/Koenkk/zigbee-herdsman-converters/issues/1449
+            // https://github.com/Koenkk/omniconn-zprotocol-converters/issues/1449
             {
                 type: 'EndDevice', manufacturerName: 'eWeLink', modelID: 'TH01', endpoints: [
                     {ID: 1, profileID: 260, deviceID: 1026, inputClusters: [0, 3, 1280, 1], outputClusters: [3]},

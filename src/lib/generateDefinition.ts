@@ -1,10 +1,10 @@
-import {Cluster} from 'zigbee-herdsman/dist/zspec/zcl/definition/tstype';
+import {Cluster} from 'omniconn-zprotocol/dist/zspec/zcl/definition/tstype';
 import {Definition, ModernExtend, Zh} from './types';
 import {getClusterAttributeValue} from './utils';
 import * as m from './modernExtend';
-import * as zh from 'zigbee-herdsman/dist';
+import * as zh from 'omniconn-zprotocol/dist';
 import {philipsLight} from './philips';
-import {Endpoint} from 'zigbee-herdsman/dist/controller/model';
+import {Endpoint} from 'omniconn-zprotocol/dist/controller/model';
 import {logger} from './logger';
 
 const NS = 'zhc:gendef';
@@ -65,7 +65,7 @@ function generateSource(definition: DefinitionWithZigbeeModel, generatedExtend: 
     });
 
     const importsStr = Object.entries(imports)
-        .map((e) => `const {${e[1].join(', ')}} = require('zigbee-herdsman-converters/lib/${e[0]}');`).join('\n');
+        .map((e) => `const {${e[1].join(', ')}} = require('omniconn-zprotocol-converters/lib/${e[0]}');`).join('\n');
 
     return `${importsStr}
 

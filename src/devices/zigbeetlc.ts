@@ -1,4 +1,4 @@
-import {Zcl} from 'zigbee-herdsman';
+import {Zcl} from 'omniconn-zprotocol';
 
 import {
     battery,

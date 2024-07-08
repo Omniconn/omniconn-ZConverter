@@ -4306,7 +4306,7 @@ const definitions: Definition[] = [
         },
         options: [exposes.options.measurement_poll_interval()],
         // This device doesn't support reporting correctly.
-        // https://github.com/Koenkk/zigbee-herdsman-converters/pull/1270
+        // https://github.com/Koenkk/omniconn-zprotocol-converters/pull/1270
         exposes: [e.switch(), e.power(), e.current(), e.voltage(),
             e.energy(), e.enum('power_outage_memory', ea.ALL, ['on', 'off', 'restore'])
                 .withDescription('Recover state after power outage'),

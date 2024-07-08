@@ -10,7 +10,7 @@ import allDefinitions from './devices';
 import * as utils from './lib/utils';
 import {Definition, Fingerprint, Zh, OnEventData, OnEventType, Configure, Expose, Tz, OtaUpdateAvailableResult, KeyValue, OnEvent, DefinitionExposes, DefinitionExposesFunction} from './lib/types';
 import {generateDefinition} from './lib/generateDefinition';
-import {Zcl} from 'zigbee-herdsman';
+import {Zcl} from 'omniconn-zprotocol';
 import * as logger from './lib/logger';
 
 const NS = 'zhc';

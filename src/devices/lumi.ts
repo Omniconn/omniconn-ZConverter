@@ -1553,9 +1553,9 @@ const definitions: Definition[] = [
 
             // Not all plugs support electricity measurements:
             // - https://github.com/Koenkk/zigbee2mqtt/issues/6861
-            // - https://github.com/Koenkk/zigbee-herdsman-converters/issues/1050#issuecomment-673111969
+            // - https://github.com/Koenkk/omniconn-zprotocol-converters/issues/1050#issuecomment-673111969
             // Voltage and current are not supported:
-            // - https://github.com/Koenkk/zigbee-herdsman-converters/issues/1050
+            // - https://github.com/Koenkk/omniconn-zprotocol-converters/issues/1050
             try {
                 await reporting.bind(endpoint, coordinatorEndpoint, ['haElectricalMeasurement']);
                 await endpoint.read('haElectricalMeasurement', ['acPowerMultiplier', 'acPowerDivisor']);

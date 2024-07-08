@@ -1615,7 +1615,7 @@ const converters1 = {
             const result: KeyValueAny = {};
             // Zigbee officially expects 'open' to be 0 and 'closed' to be 100 whereas
             // HomeAssistant etc. work the other way round.
-            // For zigbee-herdsman-converters: open = 100, close = 0
+            // For omniconn-zprotocol-converters: open = 100, close = 0
             // ubisys J1 will report 255 if lift or tilt positions are not known, so skip that.
             const metaInvert = model.meta && model.meta.coverInverted;
             const invert = metaInvert ? !options.invert_cover : options.invert_cover;
@@ -2215,7 +2215,7 @@ const converters1 = {
         type: 'commandTuyaAction',
         convert: (model, msg, publish, options, meta) => {
             if (hasAlreadyProcessedMessage(msg, model)) return;
-            // Since it is a non standard ZCL command, no default response is send from zigbee-herdsman
+            // Since it is a non standard ZCL command, no default response is send from omniconn-zprotocol
             // Send the defaultResponse here, otherwise the second button click delays.
             // https://github.com/Koenkk/zigbee2mqtt/issues/8149
             return {action: 'switch_scene', action_scene: msg.data.value};
@@ -3644,7 +3644,7 @@ const converters1 = {
             const result: KeyValueAny = {};
             const timeCoverSetMiddle = 60;
 
-            // https://github.com/Koenkk/zigbee-herdsman-converters/pull/1336
+            // https://github.com/Koenkk/omniconn-zprotocol-converters/pull/1336
             // Need to add time_close and time_open in your configuration.yaml after friendly_name (and set your time)
             if (options.hasOwnProperty('time_close') && options.hasOwnProperty('time_open')) {
                 if (!globalStore.hasValue(msg.endpoint, 'position')) {
@@ -4895,7 +4895,7 @@ const converters2 = {
             if (meta.device.dateCode === '20160120') {
                 // Cannot use metering, divisor/multiplier is not according to ZCL.
                 // https://github.com/Koenkk/zigbee2mqtt/issues/2233
-                // https://github.com/Koenkk/zigbee-herdsman-converters/issues/915
+                // https://github.com/Koenkk/omniconn-zprotocol-converters/issues/915
 
                 const result: KeyValueAny = {};
                 if (msg.data.hasOwnProperty('instantaneousDemand')) {

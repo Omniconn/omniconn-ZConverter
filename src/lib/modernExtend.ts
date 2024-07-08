@@ -1,5 +1,5 @@
-import {Zcl} from 'zigbee-herdsman';
-import {ClusterDefinition} from 'zigbee-herdsman/dist/zspec/zcl/definition/tstype';
+import {Zcl} from 'omniconn-zprotocol';
+import {ClusterDefinition} from 'omniconn-zprotocol/dist/zspec/zcl/definition/tstype';
 import tz from '../converters/toZigbee';
 import fz from '../converters/fromZigbee';
 import * as globalLegacy from '../lib/legacy';
@@ -83,7 +83,7 @@ export async function setupAttributes(
         if (read) {
             try {
                 // Don't fail configuration if reading this attribute fails
-                // https://github.com/Koenkk/zigbee-herdsman-converters/pull/7074
+                // https://github.com/Koenkk/omniconn-zprotocol-converters/pull/7074
                 await endpoint.read(cluster, config.map((a) => isString(a) ? a : (isObject(a.attribute) ? a.attribute.ID : a.attribute)));
             } catch (e) {
                 logger.debug(`Reading attribute failed: ${e}`, 'zhc:setupattribute');
@@ -483,7 +483,7 @@ export function customTimeResponse(start: '1970_UTC' | '2000_LOCAL'): ModernExte
     // number of seconds since 1st Jan 2000 00:00:00 UTC. This extend modifies that:
     // 1970_UTC: number of seconds since the Unix Epoch (1st Jan 1970 00:00:00 UTC)
     // 2000_LOCAL: seconds since 1 January in the local time zone.
-    // Disable the responses of zigbee-herdsman and respond here instead.
+    // Disable the responses of omniconn-zprotocol and respond here instead.
     const onEvent: OnEvent = async (type, data, device, options, state: KeyValue) => {
         if (!device.customReadResponse) {
             device.customReadResponse = (frame, endpoint) => {

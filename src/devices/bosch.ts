@@ -4,7 +4,7 @@ import {
     battery, humidity, iasZoneAlarm, bindCluster,
     ota, deviceEndpoints,
 } from '../lib/modernExtend';
-import {Zcl, ZSpec} from 'zigbee-herdsman';
+import {Zcl, ZSpec} from 'omniconn-zprotocol';
 import * as exposes from '../lib/exposes';
 import fz from '../converters/fromZigbee';
 import tz from '../converters/toZigbee';

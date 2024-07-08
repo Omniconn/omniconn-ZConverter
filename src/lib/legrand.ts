@@ -1,4 +1,4 @@
-import {Zcl} from 'zigbee-herdsman';
+import {Zcl} from 'omniconn-zprotocol';
 import {Fz, Tz, Zh, OnEvent, KeyValueString, KeyValueAny} from '../lib/types';
 import * as exposes from './exposes';
 import * as utils from '../lib/utils';

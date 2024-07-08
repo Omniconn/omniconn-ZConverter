@@ -1,7 +1,7 @@
 import {Fz, Tz, ModernExtend, Configure} from './types';
 import {presets as e, access as ea} from './exposes';
 import {numeric, NumericArgs, deviceAddCustomCluster, setupConfigureForReporting} from './modernExtend';
-import {Zcl} from 'zigbee-herdsman';
+import {Zcl} from 'omniconn-zprotocol';
 import {logger} from './logger';
 
 const NS = 'zhc:ubisys';
@@ -123,7 +123,7 @@ export const ubisysModernExtend = {
         {
             ID: 0xfc00,
             // XXX: once we moved all manuSpecific ones out of zh, we should revisit this
-            // Doesn't use manufacturerCode: https://github.com/Koenkk/zigbee-herdsman-converters/pull/4412
+            // Doesn't use manufacturerCode: https://github.com/Koenkk/omniconn-zprotocol-converters/pull/4412
             attributes: {
                 inputConfigurations: {ID: 0x0000, type: Zcl.DataType.ARRAY},
                 inputActions: {ID: 0x0001, type: Zcl.DataType.ARRAY},

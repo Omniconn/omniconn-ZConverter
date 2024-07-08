@@ -4,7 +4,7 @@ import tz from '../converters/toZigbee';
 import * as reporting from '../lib/reporting';
 import {Definition, Fz, ModernExtend, Reporting, Tz} from 'src/lib/types';
 import {getFromLookup} from '../lib/utils';
-import {KeyValue} from 'zigbee-herdsman/dist/controller/tstype';
+import {KeyValue} from 'omniconn-zprotocol/dist/controller/tstype';
 import {battery, lock} from '../lib/modernExtend';
 import {logger} from '../lib/logger';
 
@@ -30,7 +30,7 @@ const lockExtend = (meta={}, lockStateOptions: Reporting.Override|false=null, bi
             try {
                 await reporting.batteryAlarmState(endpoint);
             } catch (e) {
-                // Fails for some: https://github.com/Koenkk/zigbee-herdsman-converters/pull/5414
+                // Fails for some: https://github.com/Koenkk/omniconn-zprotocol-converters/pull/5414
             }
         }],
         isModernExtend: true,

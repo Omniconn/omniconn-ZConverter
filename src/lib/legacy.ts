@@ -50,7 +50,7 @@ function getDataValue(dpValue: any) {
     case dataTypes.string:
         // eslint-disable-next-line
         let dataString = '';
-        // Don't use .map here, doesn't work: https://github.com/Koenkk/zigbee-herdsman-converters/pull/1799/files#r530377091
+        // Don't use .map here, doesn't work: https://github.com/Koenkk/omniconn-zprotocol-converters/pull/1799/files#r530377091
         for (let i = 0; i < dpValue.data.length; ++i) {
             dataString += String.fromCharCode(dpValue.data[i]);
         }
@@ -1084,7 +1084,7 @@ const tuyaGetDataValue = (dataType: any, data: any) => {
     case dataTypes.string:
         // eslint-disable-next-line
         let dataString = '';
-        // Don't use .map here, doesn't work: https://github.com/Koenkk/zigbee-herdsman-converters/pull/1799/files#r530377091
+        // Don't use .map here, doesn't work: https://github.com/Koenkk/omniconn-zprotocol-converters/pull/1799/files#r530377091
         for (let i = 0; i < data.length; ++i) {
             dataString += String.fromCharCode(data[i]);
         }
@@ -4026,7 +4026,7 @@ const fromZigbee1 = {
             if (dpValue.dp === dataPoints.state) {
                 return {state: value ? 'ON': 'OFF'};
             } else if (meta.device.manufacturerName === '_TZE200_swaamsoy') {
-                // https://github.com/Koenkk/zigbee-herdsman-converters/pull/3004
+                // https://github.com/Koenkk/omniconn-zprotocol-converters/pull/3004
                 if (dpValue.dp === 2) {
                     if (value < 10) {
                         logUnexpectedDataValue('tuya_dimmer', msg, dpValue, meta, 'brightness', 10, 1000);
@@ -5020,7 +5020,7 @@ const fromZigbee1 = {
         options: [exposes.options.invert_cover()],
         convert: (model, msg, publish, options, meta) => {
             // Protocol description
-            // https://github.com/Koenkk/zigbee-herdsman-converters/issues/1159#issuecomment-614659802
+            // https://github.com/Koenkk/omniconn-zprotocol-converters/issues/1159#issuecomment-614659802
 
             const result: KeyValueAny = {};
 
@@ -5698,7 +5698,7 @@ const toZigbee1 = {
         options: [exposes.options.invert_cover()],
         convertSet: async (entity, key, value: any, meta) => {
             // Protocol description
-            // https://github.com/Koenkk/zigbee-herdsman-converters/issues/1159#issuecomment-614659802
+            // https://github.com/Koenkk/omniconn-zprotocol-converters/issues/1159#issuecomment-614659802
 
             if (key === 'position') {
                 if (value >= 0 && value <= 100) {
@@ -6198,7 +6198,7 @@ const toZigbee2 = {
                 await sendDataPointBool(entity, dataPoints.alectoSilence, value);
                 break;
             default: // Unknown key
-                throw new Error(`zigbee-herdsman-converters:tuya_alecto_smoke: Unhandled key ${key}`);
+                throw new Error(`omniconn-zprotocol-converters:tuya_alecto_smoke: Unhandled key ${key}`);
             }
         },
     } satisfies Tz.Converter,

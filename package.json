@@ -1,7 +1,4 @@
 {
-  "name": "zigbee-herdsman-converters",
-  "version": "19.59.2",
-  "description": "Collection of device converters to be used with zigbee-herdsman",
   "main": "index.js",
   "types": "index.d.ts",
   "files": [
@@ -14,18 +11,6 @@
     "/devices",
     "CHANGELOG.md"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Koenkk/zigbee-herdsman-converters.git"
-  },
-  "keywords": [
-    "aqara",
-    "tradfri",
-    "hue",
-    "wemo",
-    "zigbee",
-    "zigbee-shepherd"
-  ],
   "scripts": {
     "lint": "eslint .",
     "test": "ZHC_TEST=true jest test --silent --maxWorkers=50%",
@@ -35,20 +20,15 @@
     "build-watch": "tsc --watch",
     "prepack": "npm run clean && npm run build"
   },
-  "author": "Koen Kanters",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Koenkk/zigbee-herdsman-converters/issues"
-  },
-  "homepage": "https://github.com/Koenkk/zigbee-herdsman-converters",
   "dependencies": {
     "axios": "^1.7.2",
     "buffer-crc32": "^1.0.0",
     "https-proxy-agent": "^7.0.4",
     "iconv-lite": "^0.6.3",
+    "omniconn-zprotocol": "^1.0.0",
     "semver": "^7.6.2",
-    "tar-stream": "^3.1.7",
-    "zigbee-herdsman": "^0.50.0"
+    "tar-stream": "^3.1.7"
   },
   "devDependencies": {
     "@types/buffer-crc32": "^0.2.4",
@@ -76,5 +56,15 @@
       "test/",
       "src/"
     ]
-  }
+  },
+  "name": "omniconn-zconverter",
+  "version": "1.0.0",
+  "description": "an intermediary for omniconn-mesh",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "omniconn"
+  ],
+  "author": ""
 }

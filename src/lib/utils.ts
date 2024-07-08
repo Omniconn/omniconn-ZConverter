@@ -1,5 +1,5 @@
 import * as globalStore from './store';
-import {Zcl} from 'zigbee-herdsman';
+import {Zcl} from 'omniconn-zprotocol';
 import {Definition, Expose, Fz, KeyValue, KeyValueAny, Publish, Tz, Zh} from './types';
 import {Feature, Light, Numeric} from './exposes';
 import {logger} from './logger';
